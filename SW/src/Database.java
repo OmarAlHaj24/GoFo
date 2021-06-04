@@ -22,6 +22,9 @@ public class Database {
     }
 
     public int checkLogin (String username, String password) {
+        if (admin.account.checkUsernameAndPassword(username, password)) {
+            return 0;
+        }
         for (Player player : playersList) {
             if (player.account.checkUsernameAndPassword(username, password)) {
                 return player.id;
