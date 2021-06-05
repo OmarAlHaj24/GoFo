@@ -115,12 +115,22 @@ public class Database {
         complaintsList.add(complaint);
     }
 
-    public void deleteComplaint (int id) {
-
+    public boolean deleteComplaint (int id) {
+        boolean ret = false;
+        return ret;
     }
 
     public void addSlot (int playgroundId, Slot slot) {
 
+    }
+
+    public boolean displayComplaints() {
+        boolean ret = false;
+        for (Complaint complaint : complaintsList) {
+            System.out.println(complaint);
+            ret = true;
+        }
+        return ret;
     }
 
 }

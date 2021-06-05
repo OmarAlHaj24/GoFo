@@ -19,11 +19,18 @@ public class Administrator {
         }
     }
 
-    void displayComplaintsMenu() {
+    void executeDeleteComplaint() {
+        System.out.println("Enter complaint ID");
+        int id = scan.nextInt();
+        if (!db.deleteComplaint(id)) {
+            System.out.println("Complaint not found");
+        }
     }
 
     void executeViewComplaints() {
-        displayComplaintsMenu();
+        if (!db.displayComplaints()) {
+            System.out.println("No complaints found");
+        }
     }
 
     String getState() {
@@ -92,12 +99,13 @@ public class Administrator {
         System.out.println("1- View Playgrounds");
         System.out.println("2- Edit Playground");
         System.out.println("3- View Complaints");
-        System.out.println("4- Logout");
+        System.out.println("4- Delete Complaint");
+        System.out.println("5- Logout");
     }
 
     int executeMenu() {
         displayMenu();
-        return inputRange(1, 4);
+        return inputRange(1, 5);
     }
 
     public void run() {
@@ -110,8 +118,10 @@ public class Administrator {
                 executeEditPlayground();
             } else if (in == 3) {
                 executeViewComplaints();
+            } else if (in == 4) {
+                executeDeleteComplaint();
             }
-        } while (in != 4);
+        } while (in != 5);
     }
 
 
