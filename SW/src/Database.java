@@ -7,18 +7,28 @@ public class Database {
     static ArrayList<Player> playersList = new ArrayList<Player>();
     static ArrayList<PlaygroundOwner> playgroundOwnersList = new ArrayList<PlaygroundOwner>();
     static ArrayList<Playground> playgroundsList = new ArrayList<Playground>();
-    static ArrayList<Playground> pendingPlaygroundsList = new ArrayList<Playground>();
     static ArrayList<Booking> bookingsList = new ArrayList<Booking>();
     static ArrayList<Complaint> complaintsList = new ArrayList<Complaint>();
     static Administrator admin = new Administrator();
     static int nxtId = 0;
 
     public void runUser(int id) {
-
-    }
-
-    public void runPlayground(int id) {
-
+        if (id == 0) {
+            admin.run();
+        } else {
+            for (Player player : playersList) {
+                if (player.id == id) {
+                    player.run();
+                    return;
+                }
+            }
+            for (PlaygroundOwner playgroundOwner : playgroundOwnersList) {
+                if (playgroundOwner.id == id) {
+                    playgroundOwner.run();
+                    return;
+                }
+            }
+        }
     }
 
     public int checkLogin (String username, String password) {
@@ -76,8 +86,21 @@ public class Database {
 
     }
 
-    public void registerPlayground (Playground playground) {
-        pendingPlaygroundsList.add(playground);
+    public boolean displayPlaygroundByState(String filter) {
+        int playgroundNum = 0;
+        boolean ret = false;
+        for (Playground playground : playgroundsList) {
+            if (playground.State.equals(filter) || filter.equals("all")) {
+                System.out.println("--- Playground " + (++playgroundNum) + " ---");
+                System.out.println(playground);
+                ret = true;
+            }
+        }
+        return ret;
+    }
+
+    public void updatePlaygroundState(int id, String state) {
+
     }
 
     public void addBooking (Booking booking) {

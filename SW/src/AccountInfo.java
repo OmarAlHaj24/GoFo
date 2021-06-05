@@ -16,7 +16,7 @@ public class AccountInfo {
         password = scan.next();
         scan.skip("\\R");
         System.out.print("Enter full name: ");
-        username = scan.nextLine();
+        name = scan.nextLine();
         System.out.print("Enter e-mail: ");
         email = scan.next();
         System.out.print("Enter address: ");
@@ -33,6 +33,30 @@ public class AccountInfo {
         email = account.email;
         address = account.address;
         phone = account.phone;
+    }
+
+    void setUsername (String username) {
+        this.username = username;
+    }
+
+    void setPassword (String password) {
+        this.password = password;
+    }
+
+    void setName (String name) {
+        this.name = name;
+    }
+
+    void setEmail (String email) {
+        this.email = email;
+    }
+
+    void setAddress (String address) {
+        this.address = address;
+    }
+
+    void setPhone (String phone) {
+        this.phone = phone;
     }
 
     public boolean compare (AccountInfo accInfo) {
