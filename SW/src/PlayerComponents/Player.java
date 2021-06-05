@@ -1,8 +1,12 @@
+package PlayerComponents;
+import System.*;
+import PlaygroundComponents.*;
+
 public class Player implements User {
 
-    AccountInfo account;
-    int id;
-    Player (int nxtId, AccountInfo accountInfo) {
+    public AccountInfo account;
+    public int id;
+    public Player (int nxtId, AccountInfo accountInfo) {
         account = new AccountInfo(accountInfo);
         id = nxtId;
     }

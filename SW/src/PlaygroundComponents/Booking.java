@@ -1,3 +1,5 @@
+package PlaygroundComponents;
+
 public class Booking {
     int playgroundOwnerId;
     int playerId;

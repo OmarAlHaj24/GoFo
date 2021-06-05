@@ -1,10 +1,14 @@
+package System;
+import PlaygroundComponents.*;
+import PlayerComponents.*;
+
 import java.util.Scanner;
 
 public class SystemGoFo {
     Scanner scan = new Scanner(System.in);
     Database db = new Database();
 
-    SystemGoFo () {
+    public SystemGoFo () {
         System.out.println("--- Register administrator account ---");
         Database.admin.account = new AccountInfo();
     }

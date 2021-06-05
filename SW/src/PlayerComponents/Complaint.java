@@ -1,5 +1,9 @@
+package PlayerComponents;
+import System.*;
+import PlaygroundComponents.*;
+
 public class Complaint {
-    Complaint(int playerId, int playgroundId, String temp){
+    public Complaint(int playerId, int playgroundId, String temp){
         this.playerId = playerId;
         this.playgroundId = playgroundId;
         text = temp;

@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+package System;
+
 import java.util.Scanner;
 
 public class Administrator {
