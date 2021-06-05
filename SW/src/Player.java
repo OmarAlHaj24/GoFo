@@ -7,6 +7,11 @@ public class Player implements User {
         id = nxtId;
     }
 
+    public void fileComplaint(){
+        //We need to create a complain
+        //object and give it the player id as a parameter.
+    }
+
     @Override
     public void run() {
 
