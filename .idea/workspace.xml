@@ -5,11 +5,7 @@
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SW/src/AccountInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/System/AccountInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SW/src/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/System/Administrator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SW/src/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/PlaygroundComponents/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SW/src/Complaint.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/PlayerComponents/Complaint.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SW/src/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/System/Database.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SW/src/FavoriteTeam.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/PlayerComponents/FavoriteTeam.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SW/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/Main.java" afterDir="false" />
@@ -54,13 +50,20 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="D:/GitHubRepos/GoFo_SWE" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="GoFo_SWE" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -70,13 +73,6 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="GoFo_SWE" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -114,5 +110,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
