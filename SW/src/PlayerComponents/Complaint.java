@@ -2,19 +2,20 @@ package PlayerComponents;
 import System.*;
 import PlaygroundComponents.*;
 
-public class Complaint {
-    public Complaint(int playerId, int playgroundId, String temp){
-        this.playerId = playerId;
-        this.playgroundId = playgroundId;
-        text = temp;
-    }
+import java.util.Scanner;
 
-    Database db = new Database();
+public class Complaint {
     int playerId;
     int playgroundId;
     String text;
 
-    public void run(){
-        db.addComplaint(this);
+    public Complaint(Player player){
+        Scanner scan = new Scanner (System.in);
+        playerId = player.id;
+        System.out.println("Please enter the playground ID:");
+        playgroundId = scan.nextInt();
+        System.out.println("Please enter all the details of your complaint:");
+        text = scan.nextLine();
+        text = scan.nextLine();
     }
 }
