@@ -1,4 +1,5 @@
 package PlaygroundComponents;
+import PlayerComponents.*;
 
 public class Booking {
     int playgroundOwnerId;
@@ -6,6 +7,9 @@ public class Booking {
     Slot slot;
     String state;
 
+    public Booking(Player player){
+
+    }
     public void updateState(String newState){
         state = newState;
     }
