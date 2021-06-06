@@ -2,10 +2,10 @@ package PlaygroundComponents;
 import PlayerComponents.*;
 
 public class Booking {
-    int playgroundOwnerId;
-    int playerId;
-    Slot slot;
-    String state;
+    public int playgroundOwnerId;
+    public int playerId;
+    public Slot slot;
+    public String state;
 
     public Booking(Player player){
 
