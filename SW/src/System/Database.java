@@ -90,11 +90,11 @@ public class Database {
 
     }
 
-    public boolean displayPlaygroundByState(String filter) {
+    public boolean displayPlaygroundByState(Status status) {
         int playgroundNum = 0;
         boolean ret = false;
         for (Playground playground : playgroundsList) {
-            if (playground.State.equals(filter) || filter.equals("all")) {
+            if (playground.state.equals(status) || status.equals(Status.all)){
                 System.out.println("--- Playground " + (++playgroundNum) + " ---");
                 System.out.println(playground);
                 ret = true;

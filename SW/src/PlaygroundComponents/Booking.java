@@ -1,10 +1,10 @@
 package PlaygroundComponents;
 
 public class Booking {
-    int playgroundOwnerId;
-    int playerId;
-    Slot slot;
-    String state;
+    public int playgroundOwnerId;
+    public int playerId;
+    public Slot slot;
+    public String state;
 
     public void updateState(String newState){
         state = newState;

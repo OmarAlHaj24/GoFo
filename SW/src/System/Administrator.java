@@ -1,5 +1,5 @@
 package System;
-
+import PlaygroundComponents.*;
 import java.util.Scanner;
 
 public class Administrator {
@@ -77,20 +77,20 @@ public class Administrator {
     }
 
     void executeViewPlaygrounds() {
+        Status s;
         displayPlaygroundsMenu();
         int in = inputRange(1, 5);
         if (in == 5) return;
-        String filter;
         if (in == 1) {
-            filter = "all";
+            s = Status.all;
         } else if (in == 2) {
-            filter = "pending";
+            s = Status.PENDING;
         } else if (in == 3) {
-            filter = "accepted";
+            s = Status.ACCEPTED;
         } else {
-            filter = "denied";
+            s = Status.REJECTED;
         }
-        if (!db.displayPlaygroundByState(filter)) {
+        if (!db.displayPlaygroundByState(s)) {
             System.out.println("No playgrounds found");
         }
     }
