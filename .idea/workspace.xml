@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
+<<<<<<< HEAD
     <list default="true" id="9334f17d-d4fb-4a81-89a2-32d86d17e500" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/SW/src/PlaygroundComponents/Status.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
@@ -10,6 +11,9 @@
       <change beforePath="$PROJECT_DIR$/SW/src/System/Administrator.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/System/Administrator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SW/src/System/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/System/Database.java" afterDir="false" />
     </list>
+=======
+    <list default="true" id="9334f17d-d4fb-4a81-89a2-32d86d17e500" name="Default Changelist" comment="" />
+>>>>>>> 6f9688c59566c6b1c66aa73b4530b3cf86243a1d
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -50,19 +54,6 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="GoFo_SWE" />
@@ -86,7 +77,12 @@
       <updated>1622889178607</updated>
       <workItem from="1622889180517" duration="4034000" />
       <workItem from="1622896771588" duration="508000" />
+<<<<<<< HEAD
       <workItem from="1622913781167" duration="4127000" />
+=======
+      <workItem from="1622913781167" duration="1289000" />
+      <workItem from="1622969931448" duration="6228000" />
+>>>>>>> 6f9688c59566c6b1c66aa73b4530b3cf86243a1d
     </task>
     <servers />
   </component>
@@ -103,5 +99,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>

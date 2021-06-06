@@ -13,6 +13,7 @@ public class Database {
     static ArrayList<Playground> playgroundsList = new ArrayList<Playground>();
     static ArrayList<Booking> bookingsList = new ArrayList<Booking>();
     static ArrayList<Complaint> complaintsList = new ArrayList<Complaint>();
+    static ArrayList<FavoriteTeam> favoriteTeamsList = new ArrayList<FavoriteTeam>();
     static Administrator admin = new Administrator();
     static int nxtId = 0;
 
@@ -84,6 +85,20 @@ public class Database {
 
     public void addPlayground (Playground playground) {
         playgroundsList.add(playground);
+    }
+
+    public void addFavoriteTeam (FavoriteTeam favoriteTeam) {
+        favoriteTeamsList.add(favoriteTeam);
+    }
+
+    public boolean addPlayerToTeam (String name, Player player){
+        for(FavoriteTeam team : favoriteTeamsList){
+            if(team.name.equals(name)){
+                team.addPlayer(player);
+                return true;
+            }
+        }
+        return false;
     }
 
     public void deletePlayground (int id) {

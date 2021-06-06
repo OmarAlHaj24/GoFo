@@ -62,7 +62,7 @@ public class AccountInfo {
     }
 
     public boolean compare (AccountInfo accInfo) {
-        return (!name.equals(accInfo.name) && !email.equals(accInfo.email));
+        return (!username.equals(accInfo.username) && !email.equals(accInfo.email));
     }
 
     public boolean checkUsernameAndPassword (String username, String password) {

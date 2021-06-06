@@ -95,34 +95,62 @@ public class Administrator {
         }
     }
 
+    void executeProfile() {
+
+    }
+
+    void executeComplaints() {
+        int in;
+        do {
+            System.out.println("--- Complaint options ---");
+            System.out.println("1- View complaints");
+            System.out.println("2- Delete complaint");
+            System.out.println("3- Return to homepage");
+            switch (in = inputRange(1, 3)) {
+                case 1 -> executeViewComplaints();
+                case 2 -> executeDeleteComplaint();
+            }
+        } while (in != 3);
+
+    }
+
+    void executePlaygrounds() {
+        int in;
+        do {
+            System.out.println("--- Playground options ---");
+            System.out.println("1- View playgrounds");
+            System.out.println("2- Edit playground");
+            System.out.println("3- Return to homepage");
+            switch (in = inputRange(1, 3)) {
+                case 1 -> executeViewPlaygrounds();
+                case 2 -> executeEditPlayground();
+            }
+        } while (in != 3);
+
+    }
+
     void displayMenu() {
         System.out.println("=== Administrator Menu ===");
-        System.out.println("1- View Playgrounds");
-        System.out.println("2- Edit Playground");
-        System.out.println("3- View Complaints");
-        System.out.println("4- Delete Complaint");
-        System.out.println("5- Logout");
+        System.out.println("1- Playgrounds");
+        System.out.println("2- Complaints");
+        System.out.println("3- Profile");
+        System.out.println("4- Logout");
     }
 
     int executeMenu() {
         displayMenu();
-        return inputRange(1, 5);
+        return inputRange(1, 4);
     }
 
     public void run() {
         int in;
         do {
-            in = executeMenu();
-            if (in == 1) {
-                executeViewPlaygrounds();
-            } else if (in == 2) {
-                executeEditPlayground();
-            } else if (in == 3) {
-                executeViewComplaints();
-            } else if (in == 4) {
-                executeDeleteComplaint();
+            switch (in = executeMenu()) {
+                case 1 -> executePlaygrounds();
+                case 2 -> executeComplaints();
+                case 3 -> executeProfile();
             }
-        } while (in != 5);
+        } while (in != 4);
     }
 
 
