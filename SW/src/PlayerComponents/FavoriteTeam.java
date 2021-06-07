@@ -17,7 +17,7 @@ public class FavoriteTeam {
         System.out.println("Please enter the ID of the playground:");
         playgroundId = scan.nextInt();
         System.out.println("Enter any extra details about the team:");
-        text = scan.nextLine();
+        scan.skip("\\R");
         text = scan.nextLine();
         System.out.println("Team created successfully");
         playerList.add(player);

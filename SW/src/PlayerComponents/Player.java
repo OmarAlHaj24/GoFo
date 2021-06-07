@@ -50,9 +50,10 @@ public class Player implements User {
         System.out.println("3- View favorite team");
         System.out.println("4- Join team");
         System.out.println("5- File a complaint");
+        System.out.println("6- Log out");
         while(true){
             int n = scan.nextInt();
-            if(n < 1 || n > 5){
+            if(n < 1 || n > 6){
                 System.out.println("Invalid Input, enter a number between 1 and 5");
             }else{
                 return n;
@@ -69,17 +70,21 @@ public class Player implements User {
 
     @Override
     public void run() {
-        int n = displayMenu();
-        if(n == 1){
-            bookPlayground();
-        }else if(n == 2){
-            createFavoriteTeam();
-        }else if(n == 3){
-            viewFavoriteTeam();
-        }else if(n == 4){
-            joinTeam();
-        }else if(n == 5){
-            fileComplaint();
+        while(true){
+            int n = displayMenu();
+            if(n == 1){
+                bookPlayground();
+            }else if(n == 2){
+                createFavoriteTeam();
+            }else if(n == 3){
+                viewFavoriteTeam();
+            }else if(n == 4){
+                joinTeam();
+            }else if(n == 5){
+                fileComplaint();
+            }else if(n == 6){
+                break;
+            }
         }
     }
 }

@@ -15,7 +15,7 @@ public class Complaint {
         System.out.println("Please enter the playground ID:");
         playgroundId = scan.nextInt();
         System.out.println("Please enter all the details of your complaint:");
-        text = scan.nextLine();
+        scan.skip("\\R");
         text = scan.nextLine();
     }
 }

@@ -35,7 +35,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="D:/GitHubRepos/GoFo_SWE" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -68,6 +68,7 @@
       <workItem from="1622913781167" duration="1289000" />
       <workItem from="1622969931448" duration="6228000" />
       <workItem from="1622977738632" duration="12000" />
+      <workItem from="1623049726740" duration="197000" />
     </task>
     <servers />
   </component>
