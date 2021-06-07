@@ -67,15 +67,9 @@ public class Player implements User {
         System.out.println("5- File a complaint");
         System.out.println("6- View bookings");
         System.out.println("7- View my requests");
-        System.out.println("8- Log out");
-        while (true) {
-            int n = scan.nextInt();
-            if (n < 1 || n > 8) {
-                System.out.println("Invalid Input, enter a number between 1 and 8");
-            } else {
-                return n;
-            }
-        }
+        System.out.println("8- View profile info");
+        System.out.println("9- Log out");
+        return inputRange(1, 9);
     }
 
     public void fileComplaint() {
@@ -86,8 +80,8 @@ public class Player implements User {
     }
 
     public void viewBookings() {
-        System.out.println("---View Bookings---");
-        ArrayList<Booking> temp = db.getBookingsList();
+        System.out.println("---View bookings---");
+        ArrayList <Booking> temp = db.getBookingsList();
         for (int i = 0; i < temp.size(); ++i) {
             if (temp.get(i).playerId == id && temp.get(i).state != Status.PENDING) {
                 System.out.println(temp.get(i));
@@ -96,8 +90,8 @@ public class Player implements User {
     }
 
     public void viewRequests() {
-        System.out.println("---View Requests---");
-        ArrayList<Booking> temp = db.getBookingsList();
+        System.out.println("---View requests---");
+        ArrayList <Booking> temp = db.getBookingsList();
         for (int i = 0; i < temp.size(); ++i) {
             if (temp.get(i).playerId == id && temp.get(i).state == Status.PENDING) {
                 System.out.println(temp.get(i));
@@ -166,8 +160,8 @@ public class Player implements User {
 
     public void executeProfile() {
         int in = -1;
-        while (in != 6) {
-            System.out.println("--- Player Info ---");
+        while (in != 7) {
+            System.out.println("--- Player info ---");
             System.out.println(account);
             System.out.println("ID: " + id);
             displayProfileOptions();
@@ -175,14 +169,6 @@ public class Player implements User {
             if (in != 7) {
                 executeProfileOption(in);
             }
-        }
-    }
-
-    public void editPlayground() {
-        System.out.print("Input Playground's ID: ");
-        int id = scan.nextInt();
-        if (!db.runPlayground(id, this.id)) {
-            System.out.println("Playground not found");
         }
     }
 
@@ -205,6 +191,8 @@ public class Player implements User {
             } else if (n == 7) {
                 viewRequests();
             } else if (n == 8) {
+                executeProfile();
+            }else{
                 break;
             }
         }
