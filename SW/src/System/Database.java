@@ -54,6 +54,9 @@ public class Database {
     }
 
     public int verifyAccountInfo (AccountInfo accInfo) {
+        if (!admin.account.compare(accInfo)) {
+            return -1;
+        }
         for (Player player : playersList) {
             if (!player.account.compare(accInfo)) {
                 return -1;
@@ -72,7 +75,12 @@ public class Database {
     }
 
     public void deletePlayer (int id) {
-
+        for (int i=0; i<playersList.size(); ++i) {
+            if (playersList.get(i).id == id) {
+                playersList.remove(i);
+                break;
+            }
+        }
     }
 
     public void addPlaygroundOwner (PlaygroundOwner playgroundOwner) {
@@ -81,6 +89,12 @@ public class Database {
 
     public void deletePlaygroundOwner (int id) {
 
+        for (int i=0; i<playgroundOwnersList.size(); ++i) {
+            if (playgroundOwnersList.get(i).id == id) {
+                playgroundOwnersList.remove(i);
+                break;
+            }
+        }
     }
 
     public void addPlayground (Playground playground) {
@@ -102,7 +116,12 @@ public class Database {
     }
 
     public void deletePlayground (int id) {
-
+        for (int i=0; i<playgroundsList.size(); ++i) {
+            if (playgroundsList.get(i).id == id) {
+                playgroundsList.remove(i);
+                break;
+            }
+        }
     }
 
     public boolean displayPlaygroundByState(Status status) {
@@ -118,8 +137,13 @@ public class Database {
         return ret;
     }
 
-    public void updatePlaygroundState(int id, String state) {
-
+    public void updatePlaygroundState(int id, Status s) {
+        for (Playground playground : playgroundsList) {
+            if (playground.id == id) {
+                playground.state = s;
+                break;
+            }
+        }
     }
 
     public void addBooking (Booking booking) {
@@ -127,7 +151,12 @@ public class Database {
     }
 
     public void deleteBooking (int id) {
-
+        for (int i=0; i<bookingsList.size(); ++i) {
+            if (bookingsList.get(i).id == id) {
+                bookingsList.remove(i);
+                break;
+            }
+        }
     }
 
     public void addComplaint (Complaint complaint) {
@@ -140,7 +169,11 @@ public class Database {
     }
 
     public void addSlot (int playgroundId, Slot slot) {
-
+        for (Playground playground : playgroundsList) {
+            if (playground.id == playgroundId) {
+                playground.addSlot(slot);
+            }
+        }
     }
 
     public boolean displayComplaints() {
@@ -150,5 +183,39 @@ public class Database {
             ret = true;
         }
         return ret;
+    }
+
+    public boolean verifyUsername(String username) {
+        if (admin.account.username == username) {
+            return false;
+        }
+        for (Player player : playersList) {
+            if (player.account.username == username) {
+                return false;
+            }
+        }
+        for (PlaygroundOwner playgroundOwner : playgroundOwnersList) {
+            if (playgroundOwner.account.username == username) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public boolean verifyEmail(String email) {
+        if (admin.account.email == email) {
+            return false;
+        }
+        for (Player player : playersList) {
+            if (player.account.email == email) {
+                return false;
+            }
+        }
+        for (PlaygroundOwner playgroundOwner : playgroundOwnersList) {
+            if (playgroundOwner.account.email == email) {
+                return false;
+            }
+        }
+        return true;
     }
 }

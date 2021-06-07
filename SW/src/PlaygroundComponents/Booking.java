@@ -6,6 +6,7 @@ public class Booking {
     public int playerId;
     public Slot slot;
     public String state;
+    public int id;
 
     public Booking(Player player){
 

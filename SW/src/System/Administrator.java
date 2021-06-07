@@ -34,20 +34,20 @@ public class Administrator {
         }
     }
 
-    String getState() {
+    Status getState() {
         System.out.println("1- Update to accepted");
         System.out.println("2- Update to denied");
         System.out.println("3- Update to suspended");
         System.out.println("4- Return to home page");
         int in = inputRange(1, 4);
         if (in == 1) {
-            return "accepted";
+            return Status.ACCEPTED;
         } else if (in == 2) {
-            return "denied";
+            return Status.REJECTED;
         } else if (in == 3) {
-            return "suspended";
+            return Status.SUSPENDED;
         }
-        return "noChange";
+        return Status.all;
     }
 
     void executeEditPlayground() {
@@ -58,8 +58,8 @@ public class Administrator {
         System.out.println("3- Return to home page");
         int in = inputRange(1, 3);
         if (in == 1) {
-            String s = getState();
-            if (!s.equals("noChange")) {
+            Status s = getState();
+            if (s != s.all) {
               db.updatePlaygroundState(id, s);
             }
         } else if (in == 2) {
@@ -95,8 +95,62 @@ public class Administrator {
         }
     }
 
-    void executeProfile() {
+    void executeProfileOption(int in) {
+        String s;
+        switch (in) {
+            case 1 :
+                System.out.print("Enter the new username: ");
+                s = scan.next();
+                db.verifyUsername(s);
+                account.username = s;
+                break;
+            case 2 :
+                System.out.print("Enter the new password: ");
+                s = scan.next();
+                account.password = s;
+                break;
+            case 3 :
+                System.out.print("Enter the new email: ");
+                s = scan.next();
+                db.verifyEmail(s);
+                account.email = s;
+                break;
+            case 4 :
+                System.out.print("Enter the new address: ");
+                scan.skip("\\R");
+                s = scan.nextLine();
+                account.address = s;
+                break;
+            case 5 :
+                System.out.print("Enter the new phone number: ");
+                s = scan.next();
+                account.phone = s;
+                break;
 
+        }
+    }
+
+    void displayPorfileOptions() {
+        System.out.println("1- Change username");
+        System.out.println("2- Change password");
+        System.out.println("3- Change email");
+        System.out.println("4- Change address");
+        System.out.println("5- Change phone: ");
+        System.out.println("6- Return to homepage");
+    }
+
+    void executeProfile() {
+        int in = -1;
+        while (in != 6) {
+            System.out.println("--- Administrator info ---");
+            System.out.println(account);
+            System.out.println("ID: " + id);
+            displayPorfileOptions();
+            in = inputRange(1, 6);
+            if (in != 6) {
+                executeProfileOption(in);
+            }
+        }
     }
 
     void executeComplaints() {

@@ -11,9 +11,14 @@ public class Playground {
 
     String name;
     String address;
-    int id;
+    public int id;
     int playgroundOwnerId;
     ArrayList<Slot> slotList = new ArrayList <Slot>();
+
+    // m7tagha fel database :DD
+    public void addSlot(Slot slot) {
+
+    }
 
     public void display(){
 
