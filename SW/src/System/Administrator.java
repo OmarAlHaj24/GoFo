@@ -130,7 +130,7 @@ public class Administrator {
         }
     }
 
-    void displayPorfileOptions() {
+    void displayProfileOptions() {
         System.out.println("1- Change username");
         System.out.println("2- Change password");
         System.out.println("3- Change email");
@@ -145,7 +145,7 @@ public class Administrator {
             System.out.println("--- Administrator info ---");
             System.out.println(account);
             System.out.println("ID: " + id);
-            displayPorfileOptions();
+            displayProfileOptions();
             in = inputRange(1, 6);
             if (in != 6) {
                 executeProfileOption(in);
