@@ -1,17 +1,25 @@
 package PlaygroundComponents;
 import PlayerComponents.*;
+import System.*;
+
+import javax.xml.crypto.Data;
 
 public class Booking {
-    public int playgroundOwnerId;
+    public int playgroundId;
     public int playerId;
     public Slot slot;
-    public String state;
-    public int id;
+    public Status state;
+    public static int id;
+    Database db = new Database();
 
-    public Booking(Player player){
+    public Booking(int plID, int pID, int slotID){
+        playerId = plID;
+        state = Status.PENDING;
+        id++;
+        playgroundId = pID;
 
     }
-    public void updateState(String newState){
+    public void updateState(Status newState){
         state = newState;
     }
 }

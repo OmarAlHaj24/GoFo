@@ -1,11 +1,14 @@
 package PlaygroundComponents;
 
 public class Slot {
-    public Slot(){
-        //Slot ID must be determined automatically.
-    }
-    public int slotId;
+    public static int slotId;
     public TimeDate beginOfSlot;
     public TimeDate endOfSlot;
+
+    public Slot(TimeDate b, TimeDate e){
+        beginOfSlot=b;
+        endOfSlot=e;
+        slotId++;
+    }
 }
 

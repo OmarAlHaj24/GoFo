@@ -218,4 +218,12 @@ public class Database {
         }
         return true;
     }
+
+    public ArrayList<Booking> getBookingsList() {
+        return bookingsList;
+    }
+
+    public ArrayList<Playground> getPlaygroundsList() {
+        return playgroundsList;
+    }
 }
