@@ -66,7 +66,7 @@ public class AccountInfo {
     }
 
     public boolean checkUsernameAndPassword (String username, String password) {
-        return (this.username.equals(username) && this.password.equals(password));
+        return (this.username.equalsIgnoreCase(username) && this.password.equals(password));
     }
 
     @Override
