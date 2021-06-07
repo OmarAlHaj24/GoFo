@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class AccountInfo {
     Scanner scan = new Scanner (System.in);
-    String username;
-    String password;
-    String name;
-    String email;
-    String address;
-    String phone;
+    public String username;
+    public String password;
+    public String name;
+    public String email;
+    public String address;
+    public String phone;
 
     public AccountInfo() {
         System.out.print("Enter username: ");
@@ -35,30 +35,6 @@ public class AccountInfo {
         email = account.email;
         address = account.address;
         phone = account.phone;
-    }
-
-    void setUsername (String username) {
-        this.username = username;
-    }
-
-    void setPassword (String password) {
-        this.password = password;
-    }
-
-    void setName (String name) {
-        this.name = name;
-    }
-
-    void setEmail (String email) {
-        this.email = email;
-    }
-
-    void setAddress (String address) {
-        this.address = address;
-    }
-
-    void setPhone (String phone) {
-        this.phone = phone;
     }
 
     public boolean compare (AccountInfo accInfo) {

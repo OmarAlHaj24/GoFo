@@ -226,4 +226,51 @@ public class Database {
     public ArrayList<Playground> getPlaygroundsList() {
         return playgroundsList;
     }
+
+    public void displayPlaygroundById(int id) {
+        for (Playground playground: playgroundsList) {
+            if (playground.id == id) {
+                System.out.println(playground);
+            }
+        }
+    }
+
+    public boolean runPlayground(int playgroundId,int playgroundOwnerId) {
+        boolean ret = false;
+        for (Playground playground : playgroundsList) {
+            if (playground.id == playgroundId && playground.playgroundOwnerId == playgroundOwnerId) {
+                playground.run();
+                ret = true;
+                break;
+            }
+        }
+        return ret;
+    }
+
+     public boolean checkeWalletBalance(int id, double balance) {
+        for (Player player: playersList) {
+            if (player.id == id) {
+                return player.eWallet <= balance;
+            }
+        }
+        return false;
+     }
+
+     public void updateeWalletBalance(int id, double balance) {
+        for (Player player: playersList) {
+            if (player.id == id) {
+                player.eWallet+= balance;
+                return;
+            }
+        }
+     }
+
+     public double getCost(int playgroundId) {
+        for (Playground playground : playgroundsList) {
+            if (playground.id == playgroundId) {
+                return playground.cost;
+            }
+        }
+        return 0;
+     }
 }

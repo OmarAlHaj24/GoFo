@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9334f17d-d4fb-4a81-89a2-32d86d17e500" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SW/src/PlayerComponents/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/PlayerComponents/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SW/src/PlaygroundComponents/Booking.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/PlaygroundComponents/Booking.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SW/src/PlaygroundComponents/Playground.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/PlaygroundComponents/Playground.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SW/src/PlaygroundComponents/PlaygroundOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/PlaygroundComponents/PlaygroundOwner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SW/src/PlaygroundComponents/Slot.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/PlaygroundComponents/Slot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SW/src/System/Database.java" beforeDir="false" afterPath="$PROJECT_DIR$/SW/src/System/Database.java" afterDir="false" />
-    </list>
+    <list default="true" id="9334f17d-d4fb-4a81-89a2-32d86d17e500" name="Default Changelist" comment="" />
+    <list id="3214ed2f-9b3d-4149-80fc-a52fd9a917e4" name="Changes by Kofta" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +70,8 @@
       <workItem from="1622969931448" duration="6228000" />
       <workItem from="1622977738632" duration="12000" />
       <workItem from="1623049726740" duration="197000" />
+      <workItem from="1623084165430" duration="5008000" />
+      <workItem from="1623089506273" duration="1011000" />
     </task>
     <servers />
   </component>

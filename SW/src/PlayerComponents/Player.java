@@ -16,6 +16,7 @@ public class Player implements User {
     public int id;
     Database db = new Database();
     FavoriteTeam favoriteTeam;
+    public double eWallet;
 
     public Player(int nxtId, AccountInfo accountInfo) {
         account = new AccountInfo(accountInfo);
@@ -66,15 +67,9 @@ public class Player implements User {
         System.out.println("5- File a complaint");
         System.out.println("6- View bookings");
         System.out.println("7- View my requests");
-        System.out.println("8- Log out");
-        while (true) {
-            int n = scan.nextInt();
-            if (n < 1 || n > 6) {
-                System.out.println("Invalid Input, enter a number between 1 and 5");
-            } else {
-                return n;
-            }
-        }
+        System.out.println("8- View profile info");
+        System.out.println("9- Log out");
+        return inputRange(1, 9);
     }
 
     public void fileComplaint() {
@@ -85,8 +80,8 @@ public class Player implements User {
     }
 
     public void viewBookings() {
-        System.out.println("---View Bookings---");
-        ArrayList<Booking> temp = db.getBookingsList();
+        System.out.println("---View bookings---");
+        ArrayList <Booking> temp = db.getBookingsList();
         for (int i = 0; i < temp.size(); ++i) {
             if (temp.get(i).playerId == id && temp.get(i).state != Status.PENDING) {
                 System.out.println(temp.get(i));
@@ -95,11 +90,84 @@ public class Player implements User {
     }
 
     public void viewRequests() {
-        System.out.println("---View Requests---");
-        ArrayList<Booking> temp = db.getBookingsList();
+        System.out.println("---View requests---");
+        ArrayList <Booking> temp = db.getBookingsList();
         for (int i = 0; i < temp.size(); ++i) {
             if (temp.get(i).playerId == id && temp.get(i).state == Status.PENDING) {
                 System.out.println(temp.get(i));
+            }
+        }
+    }
+
+    public int inputRange (int l, int r) {
+        int in;
+        while (true) {
+            in = scan.nextInt();
+            if (in < l || in > r) {
+                System.out.println("Invalid Input, enter number between " + l + " and " + r);
+                continue;
+            }
+            return in;
+        }
+    }
+
+    public void executeProfileOption(int in) {
+        String s;
+        switch (in) {
+            case 1 :
+                System.out.print("Enter the new username: ");
+                s = scan.next();
+                db.verifyUsername(s);
+                account.username = s;
+                break;
+            case 2 :
+                System.out.print("Enter the new password: ");
+                s = scan.next();
+                account.password = s;
+                break;
+            case 3 :
+                System.out.print("Enter the new email: ");
+                s = scan.next();
+                db.verifyEmail(s);
+                account.email = s;
+                break;
+            case 4 :
+                System.out.print("Enter the new address: ");
+                scan.skip("\\R");
+                s = scan.nextLine();
+                account.address = s;
+                break;
+            case 5 :
+                System.out.print("Enter the new phone number: ");
+                s = scan.next();
+                account.phone = s;
+                break;
+            case 6 :
+                System.out.println("eWallet Balance: " + this.eWallet);
+                break;
+        }
+    }
+
+    public void displayProfileOptions() {
+        System.out.println("1- Change username");
+        System.out.println("2- Change password");
+        System.out.println("3- Change email");
+        System.out.println("4- Change address");
+        System.out.println("5- Change phone");
+        System.out.println("6- View eWallet");
+        System.out.println("7- Return to homepage");
+    }
+
+    public void executeProfile() {
+        int in = -1;
+        while (in != 7) {
+            System.out.println("--- Player info ---");
+            System.out.println(account);
+            System.out.println("ID: " + id);
+            displayProfileOptions();
+            in = inputRange(1, 7);
+            if (in != 7) {
+                executeProfileOption(in);
             }
         }
     }
@@ -123,6 +191,8 @@ public class Player implements User {
             } else if (n == 7) {
                 viewRequests();
             } else if (n == 8) {
+                executeProfile();
+            }else{
                 break;
             }
         }

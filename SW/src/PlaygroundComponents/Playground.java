@@ -1,4 +1,5 @@
 package PlaygroundComponents;
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -6,9 +7,10 @@ public class Playground {
     String name;
     String address;
     public static int id;
-    int playgroundOwnerId;
+    public int playgroundOwnerId;
     ArrayList<Slot> slotList = new ArrayList <Slot>();
     Scanner scan = new Scanner (System.in);
+    public double cost;
 
     public Status state;
 
@@ -19,12 +21,19 @@ public class Playground {
         name = scan.next();
         System.out.print("Playground's Address: ");
         address = scan.next();
+        System.out.print("Playground's Cost: ");
+        cost = scan.nextDouble();
     }
 
     public void run () {
 
+
     }
-    // tostring overloading required
+
+    @Override
+    public String toString(){
+        return  String.format("Playground's Name: "+name+"\nPlayground's ID: " + id + "\nAddress: " + address + "Playground Owner ID: " + playgroundOwnerId);
+    }
 
 
 
