@@ -1,3 +1,11 @@
+/**
+ * @author Omar Khaled Al Haj      20190351
+ * @author Mirette Amin Danial     20190570
+ * @author Mostafa Mahmoud Anwar   20190544
+ * Created on 6/6/2021
+ * @version 2.0
+ */
+
 package PlaygroundComponents;
 
 import System.AccountInfo;
@@ -14,12 +22,9 @@ public class PlaygroundOwner implements User {
     ArrayList<Playground> playgroundsList = new ArrayList<Playground>();
     Scanner scan = new Scanner(System.in);
 
-    public PlaygroundOwner(int nxtId, AccountInfo accountInfo) {
-        account = accountInfo;
-        id = nxtId;
-        eWallet = 0.0;
-    }
-
+    /**
+     * @return
+     */
     public int displayMenu() {
         System.out.println("---Playground Owner---");
         System.out.println("1- Register a playground");
@@ -42,6 +47,9 @@ public class PlaygroundOwner implements User {
         }
     }
 
+    /**
+     * 
+     */
     public void registerPlayground() {
         System.out.println("---Register a playground---");
         Playground playground = new Playground(this.id);
@@ -49,23 +57,10 @@ public class PlaygroundOwner implements User {
         db.addPlayground(playground);
     }
 
-    public void deletePlayground() {
-        System.out.println("---Delete playground---");
-        System.out.print("Playground's ID: ");
-        int pId = scan.nextInt();
-        boolean flag = false;
-        for (int i = 0; i < playgroundsList.size(); ++i) {
-            if (playgroundsList.get(i).id == pId) {
-                playgroundsList.remove(i);
-                flag = true;
-                break;
-            }
-        }
-        if (flag == true)
-            db.deletePlayground(pId);
-        else
-            System.out.println("Playground not found");
-    }
+    /**
+     *
+     */
+    public void deletePlayground() { System.out.println("---Delete playground---");System.out.print("Playground's ID: ");int pId = scan.nextInt();boolean flag = false;for (int i = 0; i < playgroundsList.size(); ++i) if (playgroundsList.get(i).id == pId) {                playgroundsList.remove(i);                flag = true;                break; }if (flag == true) db.deletePlayground(pId);else System.out.println("Playground not found"); }
 
     public void viewBookings() {
         System.out.println("---View Bookings---");
@@ -118,6 +113,11 @@ public class PlaygroundOwner implements User {
         }
     }
 
+    /**
+     * @param l 
+     * @param r
+     * @return
+     */
     public int inputRange (int l, int r) {
         int in;
         while (true) {
@@ -130,6 +130,9 @@ public class PlaygroundOwner implements User {
         }
     }
 
+    /**
+     * @param in 
+     */
     public void executeProfileOption(int in) {
         String s;
         switch (in) {
