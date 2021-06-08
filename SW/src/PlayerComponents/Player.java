@@ -25,35 +25,51 @@ public class Player implements User {
     FavoriteTeam favoriteTeam;
     public double eWallet;
 
+    /**
+     * @param nxtId
+     * @param accountInfo
+     */
     public Player(int nxtId, AccountInfo accountInfo) {
         account = new AccountInfo(accountInfo);
         id = nxtId;
     }
 
+    /**
+     * The bookPlayground function allows the player to book a playground
+     */
     public void bookPlayground() {
         System.out.println("---Book playground---");
-        System.out.println("---Available Playgrounds---");
+        System.out.println("---Available playgrounds---");
         db.displayPlaygroundByState(Status.ACCEPTED);
         System.out.print("Chosen Playground's ID:");
         int playgroundID = scan.nextInt();
         System.out.print("Chosen Slot's ID:");
         int slotID = scan.nextInt();
-        ArrayList<Playground> temp = db.getPlaygroundsList();
+        ArrayList <Playground> temp = db.getPlaygroundsList();
         Booking booking = new Booking(this.id,playgroundID,slotID);
         db.addBooking(booking);
     }
 
+    /**
+     * The function createFavoriteTeam allows the user to create a favorite team
+     */
     public void createFavoriteTeam() {
         System.out.println("---Create favorite team---");
         favoriteTeam = new FavoriteTeam(this);
         db.addFavoriteTeam(favoriteTeam);
     }
 
+    /**
+     * The function viewFavoriteTeam allows the user to view all the details of his favorite team
+     */
     public void viewFavoriteTeam() {
         System.out.println("---Viewing all team info---");
         System.out.println(favoriteTeam);
     }
 
+    /**
+     * The function join team allows the user to join the favorite team of another player
+     */
     public void joinTeam() {
         Scanner scan = new Scanner(System.in);
         System.out.println("---Join team---");
@@ -64,6 +80,10 @@ public class Player implements User {
         }
     }
 
+    /**
+     * The function displayMenu shows the player all of his choices and asks him to choose one
+     * @return The function returns the choice that the player chooses from the main menu
+     */
     public int displayMenu() {
         System.out.println("---Player---");
         System.out.println("---Choose an option---");
@@ -79,6 +99,9 @@ public class Player implements User {
         return inputRange(1, 9);
     }
 
+    /**
+     * The function fileComplaint allows the user to file a complaint against a playground
+     */
     public void fileComplaint() {
         System.out.println("---File a complaint---");
         Complaint complaint = new Complaint(this);
@@ -86,6 +109,9 @@ public class Player implements User {
         db.addComplaint(complaint);
     }
 
+    /**
+     * The function viewBookings shows the player all of his Accepted or rejected bookings
+     */
     public void viewBookings() {
         System.out.println("---View bookings---");
         ArrayList <Booking> temp = db.getBookingsList();
@@ -96,6 +122,9 @@ public class Player implements User {
         }
     }
 
+    /**
+     * The function viewRequests shows the player all of his pending bookings
+     */
     public void viewRequests() {
         System.out.println("---View requests---");
         ArrayList <Booking> temp = db.getBookingsList();
@@ -106,6 +135,12 @@ public class Player implements User {
         }
     }
 
+    /**
+     * The function inputRange takes the accepted range of inputs and validates if the user input is valid or not
+     * @param l the left boundary of the values
+     * @param r the right boundary of the values
+     * @return the user valid choice
+     */
     public int inputRange (int l, int r) {
         int in;
         while (true) {
@@ -118,6 +153,10 @@ public class Player implements User {
         }
     }
 
+    /**
+     * This function based on the user choice in the displayProfileOptions function will be asked to enter the new details he would like to add
+     * @param in
+     */
     public void executeProfileOption(int in) {
         String s;
         switch (in) {
@@ -155,6 +194,9 @@ public class Player implements User {
         }
     }
 
+    /**
+     * The function displayProfileOptions only shows the users the choices he has got regarding his profile
+     */
     public void displayProfileOptions() {
         System.out.println("1- Change username");
         System.out.println("2- Change password");
@@ -165,6 +207,9 @@ public class Player implements User {
         System.out.println("7- Return to homepage");
     }
 
+    /**
+     * The function executeProfile shows the user all of his account's info
+     */
     public void executeProfile() {
         int in = -1;
         while (in != 7) {
@@ -179,6 +224,9 @@ public class Player implements User {
         }
     }
 
+    /**
+     * The function run acts as the main function of the player, it helps the player navigate through all of his options
+     */
     @Override
     public void run() {
         while (true) {

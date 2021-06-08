@@ -16,6 +16,11 @@ public class FavoriteTeam {
     public ArrayList<Player> playerList = new ArrayList<Player>();
     public int playgroundId;
     public String text;
+
+    /**
+     * The constructor is called upon the creation of a favorite team, it prompts the user to enter all the details of his favorite team
+     * @param player
+     */
     public FavoriteTeam(Player player){
         Scanner scan = new Scanner (System.in);
         System.out.println("Please enter the name of your favorite team:");
@@ -29,10 +34,18 @@ public class FavoriteTeam {
         playerList.add(player);
     }
 
+    /**
+     * The function addPlayer allows a player to be added to another player's favorite team
+     * @param player
+     */
     public void addPlayer(Player player){
         playerList.add(player);
     }
 
+    /**
+     * toString function is overridden to be able to display all the information of a team
+     * @return all the details of a team
+     */
     @Override
     public String toString(){
         return "Team name: " + name + "\n" + "Playground ID: " + playgroundId + "\n" + "Additional info: " + text + "\n";

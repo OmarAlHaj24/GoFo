@@ -17,6 +17,10 @@ public class Complaint {
     int playgroundId;
     String text;
 
+    /**
+     * The constructor is called upon the creation of a complaint, it prompts the user to enter all the details of his complaint
+     * @param player
+     */
     public Complaint(Player player){
         Scanner scan = new Scanner (System.in);
         playerId = player.id;
