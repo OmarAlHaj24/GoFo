@@ -23,6 +23,7 @@ public class Playground {
         address = scan.next();
         System.out.print("Playground's Cost: ");
         cost = scan.nextDouble();
+        state = Status.PENDING;
     }
 
     public void run () {
@@ -32,7 +33,7 @@ public class Playground {
 
     @Override
     public String toString(){
-        return  String.format("Playground's Name: "+name+"\nPlayground's ID: " + id + "\nAddress: " + address + "Playground Owner ID: " + playgroundOwnerId);
+        return  String.format("Playground's Name: "+name+"\nAddress: " + address + "\nPlayground's ID: " + id + "\nPlayground Owner ID: " + playgroundOwnerId);
     }
 
 

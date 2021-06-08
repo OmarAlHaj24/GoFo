@@ -131,6 +131,14 @@ public class Database {
             if (playground.state.equals(status) || status.equals(Status.all)){
                 System.out.println("--- Playground " + (++playgroundNum) + " ---");
                 System.out.println(playground);
+                if (status.equals(status.all)) {
+                    switch (playground.state) {
+                        case ACCEPTED -> System.out.println("Status: Accepted");
+                        case REJECTED -> System.out.println("Status: Rejected");
+                        case PENDING -> System.out.println("Status: Pending");
+                        case SUSPENDED -> System.out.println("Status: Suspened");
+                    }
+                }
                 ret = true;
             }
         }
@@ -273,4 +281,19 @@ public class Database {
         }
         return 0;
      }
+
+     public void viewPlaygroundsbyId(int playergroundOwnerId) {
+        for (Playground playground : playgroundsList) {
+            if (playground.playgroundOwnerId == playergroundOwnerId) {
+                System.out.println(playground);
+                switch (playground.state) {
+                    case ACCEPTED -> System.out.println("Status: Accepted");
+                    case REJECTED -> System.out.println("Status: Rejected");
+                    case PENDING -> System.out.println("Status: Pending");
+                    case SUSPENDED -> System.out.println("Status: Suspened");
+                }
+            }
+        }
+     }
+
 }

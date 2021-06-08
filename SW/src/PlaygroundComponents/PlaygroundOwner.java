@@ -212,7 +212,8 @@ public class PlaygroundOwner implements User {
             } else if (n == 4) {
                 viewRequests();
             } else if (n == 5) {
-
+                System.out.println("--- Playgrounds List ---");
+                db.viewPlaygroundsbyId(id);
             } else if (n == 6) {
                 executeProfile();
             } else if (n == 7) {
