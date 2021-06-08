@@ -1,24 +1,30 @@
-/**
- * @author Omar Khaled Al Haj      20190351
- * @author Mirette Amin Danial     20190570
- * @author Mostafa Mahmoud Anwar   20190544
- * Created on 6/6/2021
- * @version 1.0
- */
-
 package System;
 
 import java.util.Scanner;
 
+/**
+ * AccountInfo class will contain all the data of all the users that are registered to the system whether it be a player or a playground owner.
+ *
+ * @author Omar Khaled Al Haj      20190351
+ * @author Mirette Amin Danial     20190570
+ * @author Mostafa Mahmoud Anwar   20190544
+ * @version 1.0
+ * @since 4 June 2021
+ */
+
+
 public class AccountInfo {
-    Scanner scan = new Scanner (System.in);
     public String username;
     public String password;
     public String name;
     public String email;
     public String address;
     public String phone;
+    Scanner scan = new Scanner(System.in);
 
+    /**
+     * Default Constructor that run UI so the user enters his information.
+     */
     public AccountInfo() {
         System.out.print("Enter username: ");
         username = scan.next();
@@ -36,7 +42,11 @@ public class AccountInfo {
         phone = scan.next();
     }
 
-    public AccountInfo (AccountInfo account) {
+    /**
+     * Copy Constructor
+     * @param account
+     */
+    public AccountInfo(AccountInfo account) {
         username = account.username;
         password = account.password;
         name = account.name;
@@ -45,14 +55,29 @@ public class AccountInfo {
         phone = account.phone;
     }
 
-    public boolean compare (AccountInfo accInfo) {
+    /**
+     * Function that checks if the username and email are unique.
+     * @param accInfo
+     * @return
+     */
+    public boolean checkUsernameAndEmail(AccountInfo accInfo) {
         return (!username.equals(accInfo.username) && !email.equals(accInfo.email));
     }
 
-    public boolean checkUsernameAndPassword (String username, String password) {
+    /**
+     * Function that checks if the username and email are correct.
+     * @param username
+     * @param password
+     * @return
+     */
+    public boolean checkUsernameAndPassword(String username, String password) {
         return (this.username.equalsIgnoreCase(username) && this.password.equals(password));
     }
 
+    /**
+     * Overriding toString() to print user's account info.
+     * @return
+     */
     @Override
     public String toString() {
         return "Username: " + username + "\n" +

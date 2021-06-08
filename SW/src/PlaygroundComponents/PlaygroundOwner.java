@@ -1,29 +1,56 @@
-/**
- * @author Omar Khaled Al Haj      20190351
- * @author Mirette Amin Danial     20190570
- * @author Mostafa Mahmoud Anwar   20190544
- * Created on 6/6/2021
- * @version 2.0
- */
-
 package PlaygroundComponents;
 
-import System.AccountInfo;
-import System.Database;
-import System.User;
+import System.*;
+
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * PlaygroundOwner class will contain all the functions that are exclusive to the playground owner such as registering a new playground as well as all of his account’s info.
+ *
+ * @author Omar Khaled Al Haj      20190351
+ * @author Mirette Amin Danial     20190570
+ * @author Mostafa Mahmoud Anwar   20190544
+ * @version 1.0
+ * @since 6 June 2021
+ */
+
 public class PlaygroundOwner implements User {
-    double eWallet;
+    /**
+     * Account info object to store playgroundOwner's information
+     */
     public AccountInfo account;
+    /**
+     * Playground Owner's ID
+     */
     public int id;
-    Database db = new Database();
+    /**
+     * eWallet balance
+     */
+    public double eWallet;
+    /**
+     * Playgrounds' list registered by this playground owner
+     */
     ArrayList<Playground> playgroundsList = new ArrayList<Playground>();
+
+    Database db = new Database();
     Scanner scan = new Scanner(System.in);
 
     /**
-     * @return
+     * Parametrized constructor
+     *
+     * @param pID
+     * @param acc
+     */
+    public PlaygroundOwner(int pID, AccountInfo acc) {
+        id = pID;
+        account = acc;
+    }
+
+    /**
+     * Function that displays administrator's user interface.
+     *
+     * @return choice
      */
     public int displayMenu() {
         System.out.println("---Playground Owner---");
@@ -48,7 +75,7 @@ public class PlaygroundOwner implements User {
     }
 
     /**
-     * 
+     * Function that enables the playground owner to register a new playground.
      */
     public void registerPlayground() {
         System.out.println("---Register a playground---");
@@ -58,10 +85,26 @@ public class PlaygroundOwner implements User {
     }
 
     /**
-     *
+     * Function that enables the playground owner to delete playground.
      */
-    public void deletePlayground() { System.out.println("---Delete playground---");System.out.print("Playground's ID: ");int pId = scan.nextInt();boolean flag = false;for (int i = 0; i < playgroundsList.size(); ++i) if (playgroundsList.get(i).id == pId) {                playgroundsList.remove(i);                flag = true;                break; }if (flag == true) db.deletePlayground(pId);else System.out.println("Playground not found"); }
+    public void deletePlayground() {
+        System.out.println("---Delete playground---");
+        System.out.print("Playground's ID: ");
+        int pId = scan.nextInt();
+        boolean flag = false;
+        for (int i = 0; i < playgroundsList.size(); ++i)
+            if (playgroundsList.get(i).id == pId) {
+                playgroundsList.remove(i);
+                flag = true;
+                break;
+            }
+        if (flag == true) db.deletePlayground(pId);
+        else System.out.println("Playground not found");
+    }
 
+    /**
+     * Function that enables the playground owner to view his playgrounds' bookings.
+     */
     public void viewBookings() {
         System.out.println("---View Bookings---");
         ArrayList<Booking> temp = db.getBookingsList();
@@ -72,6 +115,9 @@ public class PlaygroundOwner implements User {
         }
     }
 
+    /**
+     * Function that enables the playground owner to view player's requests to book a playground.
+     */
     public void viewRequests() {
         System.out.println("---View Requests---");
         ArrayList<Booking> temp = db.getBookingsList();
@@ -80,28 +126,28 @@ public class PlaygroundOwner implements User {
                 System.out.println(temp.get(i));
             }
         }
-        int choice=0;
+        int choice = 0;
         while (choice != 3) {
             System.out.print("1.Accept/2.Deny\n3. Return");
             choice = scan.nextInt();
             System.out.print("Input Booking's ID: ");
             int id = scan.nextInt();
 
-            if(choice == 1){
+            if (choice == 1) {
                 for (int i = 0; i < temp.size(); ++i) {
                     if (temp.get(i).id == id && temp.get(i).state == Status.PENDING) {
-                        boolean flag = db.checkeWalletBalance(temp.get(i).playerId,temp.get(i).playgroundId);
-                        if(flag) {
+                        boolean flag = db.checkeWalletBalance(temp.get(i).playerId, temp.get(i).playgroundId);
+                        if (flag) {
                             temp.get(i).updateState(Status.ACCEPTED);
-                        }
-                        else{
+                            db.updateWalletBalance(temp.get(i).playerId, (-1) * (temp.get(i).cost));
+                            db.updateWalletBalance(id, (temp.get(i).cost));
+                        } else {
                             temp.get(i).updateState(Status.REJECTED);
                         }
                         break;
                     }
                 }
-            }
-            else if (choice == 2){
+            } else if (choice == 2) {
                 for (int i = 0; i < temp.size(); ++i) {
                     if (temp.get(i).id == id && temp.get(i).state == Status.PENDING) {
                         temp.get(i).updateState(Status.REJECTED);
@@ -114,11 +160,13 @@ public class PlaygroundOwner implements User {
     }
 
     /**
-     * @param l 
-     * @param r
-     * @return
+     * The function inputRange takes the accepted range of inputs and validates if the user input is valid or not
+     *
+     * @param l the left boundary of the values
+     * @param r the right boundary of the values
+     * @return the user valid choice
      */
-    public int inputRange (int l, int r) {
+    public int inputRange(int l, int r) {
         int in;
         while (true) {
             in = scan.nextInt();
@@ -131,45 +179,50 @@ public class PlaygroundOwner implements User {
     }
 
     /**
-     * @param in 
+     * Function that enables the playground owner to edit his profile.
+     *
+     * @param in
      */
     public void executeProfileOption(int in) {
         String s;
         switch (in) {
-            case 1 :
+            case 1:
                 System.out.print("Enter the new username: ");
                 s = scan.next();
                 db.verifyUsername(s);
                 account.username = s;
                 break;
-            case 2 :
+            case 2:
                 System.out.print("Enter the new password: ");
                 s = scan.next();
                 account.password = s;
                 break;
-            case 3 :
+            case 3:
                 System.out.print("Enter the new email: ");
                 s = scan.next();
                 db.verifyEmail(s);
                 account.email = s;
                 break;
-            case 4 :
+            case 4:
                 System.out.print("Enter the new address: ");
                 scan.skip("\\R");
                 s = scan.nextLine();
                 account.address = s;
                 break;
-            case 5 :
+            case 5:
                 System.out.print("Enter the new phone number: ");
                 s = scan.next();
                 account.phone = s;
                 break;
-            case 6 :
+            case 6:
                 System.out.println("eWallet Balance: " + this.eWallet);
                 break;
         }
     }
 
+    /**
+     * Function that displays playground owner's profile.
+     */
     public void displayProfileOptions() {
         System.out.println("1- Change username");
         System.out.println("2- Change password");
@@ -180,6 +233,9 @@ public class PlaygroundOwner implements User {
         System.out.println("7- Return to homepage");
     }
 
+    /**
+     * The function executeProfile shows the user all of his account's info
+     */
     public void executeProfile() {
         int in = -1;
         while (in != 6) {
@@ -194,6 +250,9 @@ public class PlaygroundOwner implements User {
         }
     }
 
+    /**
+     * Function that enables the playground owner to edit his playgrounds by their IDs.
+     */
     public void editPlayground() {
         System.out.print("Input Playground's ID: ");
         int id = scan.nextInt();
@@ -202,6 +261,9 @@ public class PlaygroundOwner implements User {
         }
     }
 
+    /**
+     * Interface Function
+     */
     @Override
     public void run() {
         while (true) {
@@ -216,7 +278,7 @@ public class PlaygroundOwner implements User {
                 viewRequests();
             } else if (n == 5) {
                 System.out.println("--- Playgrounds List ---");
-                db.viewPlaygroundsbyId(id);
+                db.viewPlaygroundsByOwnerId(id);
             } else if (n == 6) {
                 executeProfile();
             } else if (n == 7) {
@@ -231,8 +293,7 @@ public class PlaygroundOwner implements User {
                 } else {
                     System.out.println("Failed to delete the account");
                 }
-            }
-            else {
+            } else {
                 break;
             }
         }

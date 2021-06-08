@@ -1,12 +1,5 @@
-/**
- * @author Omar Khaled Al Haj      20190351
- * @author Mirette Amin Danial     20190570
- * @author Mostafa Mahmoud Anwar   20190544
- * Created on 6/6/2021
- * @version 1.3
- */
-
 package PlayerComponents;
+
 import PlaygroundComponents.Booking;
 import PlaygroundComponents.Playground;
 import PlaygroundComponents.Status;
@@ -17,15 +10,42 @@ import System.User;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/**
+ * Player class includes all the players data, his team,
+ * As well as all the functions that has to do with the player such as viewing his bookings,
+ * booking a new playground, registering for a team and so on.
+ *
+ * @author Omar Khaled Al Haj      20190351
+ * @author Mirette Amin Danial     20190570
+ * @author Mostafa Mahmoud Anwar   20190544
+ * @version 1.0
+ * @since 6 June 2021
+ */
+
 public class Player implements User {
-    Scanner scan = new Scanner(System.in);
+    /**
+     * Account info object to store player's information
+     */
     public AccountInfo account;
+    /**
+     * Player's ID
+     */
     public int id;
-    Database db = new Database();
-    FavoriteTeam favoriteTeam;
+    /**
+     * eWallet balance
+     */
     public double eWallet;
+    /**
+     * Favorite team created by the player
+     */
+    FavoriteTeam favoriteTeam;
+
+    Scanner scan = new Scanner(System.in);
+    Database db = new Database();
 
     /**
+     * Parametrized Constructor that sets the player's id and account info.
+     *
      * @param nxtId
      * @param accountInfo
      */
@@ -39,8 +59,38 @@ public class Player implements User {
      */
     public void bookPlayground() {
         System.out.println("---Book playground---");
-        Booking booking = new Booking(this);
-        db.addBooking(booking);
+        System.out.println("1- Filter Playgrounds by address\n2- Filter Playgrounds near you\n3- View All Playgrounds");
+        int choice = scan.nextInt();
+        switch (choice) {
+            case 1:
+                System.out.print("Enter Address: ");
+                String address = scan.next();
+                System.out.println("---Available Playgrounds---");
+                db.displayPlaygroundFilteredByAddress(address);
+                break;
+
+            case 2:
+                System.out.println("---Available Playgrounds---");
+                db.displayPlaygroundFilteredByAddress(this.account.address);
+                break;
+            case 3:
+                System.out.println("---Available Playgrounds---");
+                db.displayPlaygroundFilteredByAddress("all");
+                break;
+        }
+
+        System.out.print("Chosen Playground's ID:");
+        int playgroundID = scan.nextInt();
+        System.out.print("Chosen Slot's ID:");
+        int slotID = scan.nextInt();
+
+        if (db.checkSlot(playgroundID, slotID)) {
+            ArrayList<Playground> temp = db.getPlaygroundsList();
+            Booking booking = new Booking(this.id, playgroundID, slotID);
+            db.addBooking(booking);
+        } else {
+            System.out.println("Wrong Playground's ID or Slot's ID");
+        }
     }
 
     /**
@@ -75,6 +125,7 @@ public class Player implements User {
 
     /**
      * The function displayMenu shows the player all of his choices and asks him to choose one
+     *
      * @return The function returns the choice that the player chooses from the main menu
      */
     public int displayMenu() {
@@ -107,7 +158,7 @@ public class Player implements User {
      */
     public void viewBookings() {
         System.out.println("---View bookings---");
-        ArrayList <Booking> temp = db.getBookingsList();
+        ArrayList<Booking> temp = db.getBookingsList();
         for (int i = 0; i < temp.size(); ++i) {
             if (temp.get(i).playerId == id && temp.get(i).state != Status.PENDING) {
                 System.out.println(temp.get(i));
@@ -120,7 +171,7 @@ public class Player implements User {
      */
     public void viewRequests() {
         System.out.println("---View requests---");
-        ArrayList <Booking> temp = db.getBookingsList();
+        ArrayList<Booking> temp = db.getBookingsList();
         for (int i = 0; i < temp.size(); ++i) {
             if (temp.get(i).playerId == id && temp.get(i).state == Status.PENDING) {
                 System.out.println(temp.get(i));
@@ -130,11 +181,12 @@ public class Player implements User {
 
     /**
      * The function inputRange takes the accepted range of inputs and validates if the user input is valid or not
+     *
      * @param l the left boundary of the values
      * @param r the right boundary of the values
      * @return the user valid choice
      */
-    public int inputRange (int l, int r) {
+    public int inputRange(int l, int r) {
         int in;
         while (true) {
             in = scan.nextInt();
@@ -148,40 +200,41 @@ public class Player implements User {
 
     /**
      * This function based on the user choice in the displayProfileOptions function will be asked to enter the new details he would like to add
+     *
      * @param in
      */
     public void executeProfileOption(int in) {
         String s;
         switch (in) {
-            case 1 :
+            case 1:
                 System.out.print("Enter the new username: ");
                 s = scan.next();
                 db.verifyUsername(s);
                 account.username = s;
                 break;
-            case 2 :
+            case 2:
                 System.out.print("Enter the new password: ");
                 s = scan.next();
                 account.password = s;
                 break;
-            case 3 :
+            case 3:
                 System.out.print("Enter the new email: ");
                 s = scan.next();
                 db.verifyEmail(s);
                 account.email = s;
                 break;
-            case 4 :
+            case 4:
                 System.out.print("Enter the new address: ");
                 scan.skip("\\R");
                 s = scan.nextLine();
                 account.address = s;
                 break;
-            case 5 :
+            case 5:
                 System.out.print("Enter the new phone number: ");
                 s = scan.next();
                 account.phone = s;
                 break;
-            case 6 :
+            case 6:
                 System.out.println("eWallet Balance: " + this.eWallet);
                 break;
             case 7:
@@ -244,7 +297,7 @@ public class Player implements User {
                 viewRequests();
             } else if (n == 8) {
                 executeProfile();
-            }else{
+            } else {
                 break;
             }
         }
