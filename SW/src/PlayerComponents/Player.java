@@ -39,14 +39,7 @@ public class Player implements User {
      */
     public void bookPlayground() {
         System.out.println("---Book playground---");
-        System.out.println("---Available playgrounds---");
-        db.displayPlaygroundByState(Status.ACCEPTED);
-        System.out.print("Chosen Playground's ID:");
-        int playgroundID = scan.nextInt();
-        System.out.print("Chosen Slot's ID:");
-        int slotID = scan.nextInt();
-        ArrayList <Playground> temp = db.getPlaygroundsList();
-        Booking booking = new Booking(this.id,playgroundID,slotID);
+        Booking booking = new Booking(this);
         db.addBooking(booking);
     }
 
@@ -191,6 +184,9 @@ public class Player implements User {
             case 6 :
                 System.out.println("eWallet Balance: " + this.eWallet);
                 break;
+            case 7:
+                System.out.println("Enter the amount of credits to add: ");
+                eWallet += scan.nextInt();
         }
     }
 
@@ -204,7 +200,8 @@ public class Player implements User {
         System.out.println("4- Change address");
         System.out.println("5- Change phone");
         System.out.println("6- View eWallet");
-        System.out.println("7- Return to homepage");
+        System.out.println("7- Add credits");
+        System.out.println("8- Return to homepage");
     }
 
     /**
@@ -212,13 +209,13 @@ public class Player implements User {
      */
     public void executeProfile() {
         int in = -1;
-        while (in != 7) {
+        while (in != 8) {
             System.out.println("--- Player info ---");
             System.out.println(account);
             System.out.println("ID: " + id);
             displayProfileOptions();
-            in = inputRange(1, 7);
-            if (in != 7) {
+            in = inputRange(1, 8);
+            if (in != 8) {
                 executeProfileOption(in);
             }
         }
