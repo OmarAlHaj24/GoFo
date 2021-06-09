@@ -1,1 +1,1 @@
-Please add you class diagrams as a pdf and a vpd
+Please add your class diagrams as a pdf and a vpd
