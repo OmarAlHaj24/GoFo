@@ -41,4 +41,14 @@ public class Slot {
         slotId++;
         id = slotId;
     }
+
+    /**
+     * Overriding toString Function to display Slot's information.
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return String.format("Slot's ID: " + id + "\nStart: " + beginOfSlot + "\nEnd: " + endOfSlot);
+    }
 }

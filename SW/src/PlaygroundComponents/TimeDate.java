@@ -33,4 +33,14 @@ public class TimeDate {
         minutes = scan.nextInt();
         dayTime = (scan.next().equalsIgnoreCase("PM"));
     }
+
+    /**
+     * Overriding toString Function to display TimeDate's information.
+     *
+     * @return
+     */
+    @Override
+    public String toString() {
+        return String.format(hours + ':' + minutes + " on " + day + '/' + month + '/' + year);
+    }
 }
