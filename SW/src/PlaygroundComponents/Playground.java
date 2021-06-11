@@ -74,6 +74,21 @@ public class Playground {
     }
 
     /**
+     * Function that executes deleting slots.
+     */
+    void executeDeleteSlot() {
+        int id;
+        System.out.print("Enter slot ID: ");
+        id = scan.nextInt();
+        for (Slot slot : slotList) {
+            if (slot.id == id) {
+                slotList.remove(slot);
+                break;
+            }
+        }
+    }
+
+    /**
      * Function that executes adding slots.
      */
     void executeAddSlots() {
@@ -88,11 +103,11 @@ public class Playground {
      */
     public void run() {
         System.out.println("1- Add Slots");
-        int in = inputRange(1, 1);
+        System.out.println("1- Delete Slot");
+        int in = inputRange(1, 2);
         switch (in) {
-            case 1:
-                executeAddSlots();
-                break;
+            case 1 -> executeAddSlots();
+            case 2 -> executeDeleteSlot();
         }
 
     }
