@@ -399,7 +399,7 @@ public class Database {
     public boolean checkeWalletBalance(int id, double balance) {
         for (Player player : playersList) {
             if (player.id == id) {
-                return player.eWallet <= balance;
+                return player.eWallet >= balance;
             }
         }
         return false;
