@@ -37,11 +37,11 @@
     
     
 ## How to book a playground
-*Register as administrator. 
-*Register as playground owner.
-*Register a new playground then its status will be pending until the acceptance of the administrator.
-*Edit playground --> add slot.
-*Login as administrator --> View playgrounds --> Edit Playgroud --> Update Playgrounds state to Accepted.
-*Register as player.
-*Book a playground --> choose filter --> input chosen playground's id and slot's id.
-*Login as playground owner --> View my requests --> Accept booking.
+* ### Register as administrator. 
+* ### Register as playground owner.
+* ### Register a new playground then its status will be pending until the acceptance of the administrator.
+* ### Edit playground --> add slot.
+* ### Login as administrator --> View playgrounds --> Edit Playgroud --> Update Playgrounds state to Accepted.
+* ### Register as player.
+* ### Book a playground --> choose filter --> input chosen playground's id and slot's id.
+* ### Login as playground owner --> View my requests --> Accept booking.
