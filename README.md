@@ -9,7 +9,7 @@ The purpose of this software is to organize the process of booking football play
 * ### Complaint Class
     Complaint class will contain all the attributes and functions required by a player to file a complaint against any of the playgrounds he booked before.
 
-## PlaygroundComponent
+## PlaygroundComponent Package
 * ### PlaygroundOwner Class
     PlaygroundOwner class will contain all the functions that are exclusive to the playground owner such as registering a new playground as well as all of his account’s info.
 * ### Playground Class
