@@ -80,6 +80,7 @@ public class Playground {
         TimeDate b = new TimeDate();
         TimeDate e = new TimeDate();
         Slot s = new Slot(b, e);
+        slotList.add(s);
     }
 
     /**

@@ -109,8 +109,9 @@ public class PlaygroundOwner implements User {
         System.out.println("---View Bookings---");
         ArrayList<Booking> temp = db.getBookingsList();
         for (int i = 0; i < temp.size(); ++i) {
-            if (playgroundsList.contains(temp.get(i).playgroundId) && temp.get(i).state != Status.PENDING) {
+            if (temp.get(i).playgroundOwnerId == id && temp.get(i).state != Status.PENDING) {
                 System.out.println(temp.get(i));
+                System.out.println("State: " + temp.get(i).state);
             }
         }
     }
@@ -127,9 +128,12 @@ public class PlaygroundOwner implements User {
             }
         }
         int choice = 0;
-        while (choice != 3) {
-            System.out.print("1.Accept/2.Deny\n3. Return");
+        while (true) {
+            System.out.println("1. Accept/2. Deny/3. Return");
             choice = scan.nextInt();
+            if (choice == 3) {
+                break;
+            }
             System.out.print("Input Booking's ID: ");
             int id = scan.nextInt();
 
@@ -155,7 +159,6 @@ public class PlaygroundOwner implements User {
                     }
                 }
             }
-
         }
     }
 
