@@ -514,6 +514,10 @@ public class Database {
         for (Playground playground : playgroundsList) {
             if (playground.state.equals(Status.ACCEPTED) && (playground.address == address || address.equalsIgnoreCase("all"))) {
                 System.out.println(playground);
+                for (Slot slot : playground.slotList) {
+                    System.out.print(slot + " ");
+                }
+                System.out.println();
             }
         }
     }
