@@ -36,7 +36,7 @@
     Administrator class will hold the functions that are only exclusive for the administrator such as approving of newly added playgrounds.
     
     
-###How to book a playground
+## How to book a playground
 *Register as administrator. 
 *Register as playground owner.
 *Register a new playground then its status will be pending until the acceptance of the administrator.
