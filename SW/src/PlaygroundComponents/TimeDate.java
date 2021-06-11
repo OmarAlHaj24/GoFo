@@ -13,7 +13,6 @@ import java.util.Scanner;
  * @since 4 June 2021
  */
 
-
 public class TimeDate {
     public int hours, minutes;
     public boolean dayTime;
@@ -41,6 +40,12 @@ public class TimeDate {
      */
     @Override
     public String toString() {
-        return String.format(hours + ':' + minutes + " on " + day + '/' + month + '/' + year);
+        String s = Integer.toString(hours) + ':' + Integer.toString(minutes);
+        if (dayTime) {
+            s += " PM";
+        } else {
+            s += " AM";
+        }
+        return String.format(s + " on " + day + '/' + month + '/' + year);
     }
 }
