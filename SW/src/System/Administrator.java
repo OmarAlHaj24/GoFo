@@ -180,7 +180,6 @@ public class Administrator {
                 s = scan.next();
                 account.phone = s;
                 break;
-
         }
     }
 

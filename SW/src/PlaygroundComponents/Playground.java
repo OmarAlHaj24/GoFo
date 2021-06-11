@@ -103,11 +103,15 @@ public class Playground {
      */
     public void run() {
         System.out.println("1- Add Slots");
-        System.out.println("1- Delete Slot");
+        System.out.println("2- Delete Slot");
         int in = inputRange(1, 2);
         switch (in) {
-            case 1 -> executeAddSlots();
-            case 2 -> executeDeleteSlot();
+            case 1:
+                executeAddSlots();
+                break;
+            case 2:
+                executeDeleteSlot();
+                break;
         }
 
     }
