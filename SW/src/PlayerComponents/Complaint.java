@@ -6,8 +6,6 @@ import java.util.Scanner;
  * Complaint class will contain all the attributes and functions required by a player to file a complaint against any of the playgrounds he booked before.
  *
  * @author Omar Khaled Al Haj      20190351
- * @author Mirette Amin Danial     20190570
- * @author Mostafa Mahmoud Anwar   20190544
  * @version 1.0
  * @since 6 June 2021
  */

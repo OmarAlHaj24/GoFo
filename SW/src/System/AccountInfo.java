@@ -5,8 +5,6 @@ import java.util.Scanner;
 /**
  * AccountInfo class will contain all the data of all the users that are registered to the system whether it be a player or a playground owner.
  *
- * @author Omar Khaled Al Haj      20190351
- * @author Mirette Amin Danial     20190570
  * @author Mostafa Mahmoud Anwar   20190544
  * @version 1.0
  * @since 4 June 2021

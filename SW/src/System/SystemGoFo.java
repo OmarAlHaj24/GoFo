@@ -8,8 +8,6 @@ import java.util.Scanner;
 /**
  * System class is the main class of this system, it should prompt the user to choose either to register or to login using their already existing accounts.
  *
- * @author Omar Khaled Al Haj      20190351
- * @author Mirette Amin Danial     20190570
  * @author Mostafa Mahmoud Anwar   20190544
  * @version 1.0
  * @since 4 June 2021

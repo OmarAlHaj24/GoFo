@@ -7,8 +7,6 @@ import java.util.Scanner;
  * FavoriteTeam class that represents the created team by the player named favorite team to invite those players to a specific playground.
  *
  * @author Omar Khaled Al Haj      20190351
- * @author Mirette Amin Danial     20190570
- * @author Mostafa Mahmoud Anwar   20190544
  * @version 1.0
  * @since 6 June 2021
  */

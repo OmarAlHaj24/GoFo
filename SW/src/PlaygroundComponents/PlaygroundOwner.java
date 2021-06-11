@@ -8,9 +8,7 @@ import java.util.Scanner;
 /**
  * PlaygroundOwner class will contain all the functions that are exclusive to the playground owner such as registering a new playground as well as all of his account’s info.
  *
- * @author Omar Khaled Al Haj      20190351
  * @author Mirette Amin Danial     20190570
- * @author Mostafa Mahmoud Anwar   20190544
  * @version 1.0
  * @since 6 June 2021
  */

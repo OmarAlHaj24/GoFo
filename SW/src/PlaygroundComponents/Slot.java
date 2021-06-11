@@ -3,9 +3,7 @@ package PlaygroundComponents;
 /**
  * Slot class will contain all the details of a slot such as the time and date of it.
  *
- * @author Omar Khaled Al Haj      20190351
  * @author Mirette Amin Danial     20190570
- * @author Mostafa Mahmoud Anwar   20190544
  * @version 1.0
  * @since 7 June 2021
  */

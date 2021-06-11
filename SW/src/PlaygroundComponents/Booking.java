@@ -5,9 +5,7 @@ import System.Database;
 /**
  * Booking class contains all the details of a booking including the player ID, the playground owner ID and so on.
  *
- * @author Omar Khaled Al Haj      20190351
  * @author Mirette Amin Danial     20190570
- * @author Mostafa Mahmoud Anwar   20190544
  * @version 1.0
  * @since 7 June 2021
  */

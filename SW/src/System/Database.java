@@ -10,8 +10,6 @@ import java.util.ArrayList;
  * it stores static arrays which will be holding all the data that will be used by any of the users,
  * it will also allow us to manipulate any of these arrays.
  *
- * @author Omar Khaled Al Haj      20190351
- * @author Mirette Amin Danial     20190570
  * @author Mostafa Mahmoud Anwar   20190544
  * @version 1.0
  * @since 4 June 2021

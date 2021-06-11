@@ -7,8 +7,6 @@ import java.util.Scanner;
 /**
  * Administrator class will hold the functions that are only exclusive for the administrator such as approving of newly added playgrounds.
  *
- * @author Omar Khaled Al Haj      20190351
- * @author Mirette Amin Danial     20190570
  * @author Mostafa Mahmoud Anwar   20190544
  * @version 1.0
  * @since 4 June 2021
