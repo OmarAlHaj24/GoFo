@@ -24,3 +24,13 @@ The purpose of this software is to organize the process of booking football play
     Enumeration that represents different playground and booking status.
 
 ## System Package
+* ### SystemGoFo Class
+     System class is the main class of this system, it should prompt the user to choose either to register or to login using their already existing accounts.
+* ### Database Class
+    Database class acts as the database for our system, it stores static arrays which will be holding all the data that will be used by any of the users, it will also allow us to manipulate any of these arrays.
+* ### AccountInfo Class
+    AccountInfo class will contain all the data of all the users that are registered to the system whether it be a player or a playground owner.
+* ### User Interface
+    User interface includes all the basic functions of both players and playground owners such as the menus, the bookings, the requests, etc.
+* ### Administrator Class
+    Administrator class will hold the functions that are only exclusive for the administrator such as approving of newly added playgrounds.
